@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0589DC6455AC24F2A2CBEF55 /* Pods_Ice_Cream_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6787317B794998972D936E /* Pods_Ice_Cream_TrackerTests.framework */; };
+		1537CAB0225D9F0F003313A0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1537CAAF225D9F0F003313A0 /* Data.swift */; };
 		1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A895225D8B3900FAB5C6 /* AppDelegate.swift */; };
 		1549A898225D8B3900FAB5C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A897225D8B3900FAB5C6 /* ViewController.swift */; };
 		1549A89B225D8B3900FAB5C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1549A899225D8B3900FAB5C6 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1537CAAF225D9F0F003313A0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		1549A892225D8B3900FAB5C6 /* Ice Cream Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ice Cream Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1549A895225D8B3900FAB5C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1549A897225D8B3900FAB5C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1537CAAE225D9EF9003313A0 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				1537CAAF225D9F0F003313A0 /* Data.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
 		1549A889225D8B3900FAB5C6 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		1549A894225D8B3900FAB5C6 /* Ice Cream Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				1537CAAE225D9EF9003313A0 /* Data Model */,
 				1549A895225D8B3900FAB5C6 /* AppDelegate.swift */,
 				1549A897225D8B3900FAB5C6 /* ViewController.swift */,
 				1549A899225D8B3900FAB5C6 /* Main.storyboard */,
@@ -383,6 +394,7 @@
 				1549A898225D8B3900FAB5C6 /* ViewController.swift in Sources */,
 				1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */,
 				1549A89E225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld in Sources */,
+				1537CAB0225D9F0F003313A0 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
