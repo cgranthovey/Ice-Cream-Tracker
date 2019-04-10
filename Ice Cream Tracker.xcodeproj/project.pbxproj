@@ -1,0 +1,737 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0589DC6455AC24F2A2CBEF55 /* Pods_Ice_Cream_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6787317B794998972D936E /* Pods_Ice_Cream_TrackerTests.framework */; };
+		1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A895225D8B3900FAB5C6 /* AppDelegate.swift */; };
+		1549A898225D8B3900FAB5C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A897225D8B3900FAB5C6 /* ViewController.swift */; };
+		1549A89B225D8B3900FAB5C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1549A899225D8B3900FAB5C6 /* Main.storyboard */; };
+		1549A89E225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1549A89C225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld */; };
+		1549A8A0225D8B3B00FAB5C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1549A89F225D8B3B00FAB5C6 /* Assets.xcassets */; };
+		1549A8A3225D8B3B00FAB5C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1549A8A1225D8B3B00FAB5C6 /* LaunchScreen.storyboard */; };
+		1549A8AE225D8B3C00FAB5C6 /* Ice_Cream_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A8AD225D8B3C00FAB5C6 /* Ice_Cream_TrackerTests.swift */; };
+		1549A8B9225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A8B8225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift */; };
+		2135C5521CFA93B1A93F60B4 /* Pods_Ice_Cream_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611D3D73675BDAAED07CF47B /* Pods_Ice_Cream_TrackerUITests.framework */; };
+		306FAD4DCA056DC487B482D8 /* Pods_Ice_Cream_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD2A9130770BEC91B118F9 /* Pods_Ice_Cream_Tracker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1549A8AA225D8B3C00FAB5C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1549A88A225D8B3900FAB5C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1549A891225D8B3900FAB5C6;
+			remoteInfo = "Ice Cream Tracker";
+		};
+		1549A8B5225D8B3C00FAB5C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1549A88A225D8B3900FAB5C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1549A891225D8B3900FAB5C6;
+			remoteInfo = "Ice Cream Tracker";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1549A892225D8B3900FAB5C6 /* Ice Cream Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ice Cream Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1549A895225D8B3900FAB5C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1549A897225D8B3900FAB5C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1549A89A225D8B3900FAB5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1549A89D225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ice_Cream_Tracker.xcdatamodel; sourceTree = "<group>"; };
+		1549A89F225D8B3B00FAB5C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1549A8A2225D8B3B00FAB5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1549A8A4225D8B3B00FAB5C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1549A8A9225D8B3C00FAB5C6 /* Ice Cream TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ice Cream TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1549A8AD225D8B3C00FAB5C6 /* Ice_Cream_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ice_Cream_TrackerTests.swift; sourceTree = "<group>"; };
+		1549A8AF225D8B3C00FAB5C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1549A8B4225D8B3C00FAB5C6 /* Ice Cream TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ice Cream TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1549A8B8225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ice_Cream_TrackerUITests.swift; sourceTree = "<group>"; };
+		1549A8BA225D8B3C00FAB5C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27A6501B26B91A8A99DB790F /* Pods-Ice Cream Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream Tracker/Pods-Ice Cream Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		611D3D73675BDAAED07CF47B /* Pods_Ice_Cream_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ice_Cream_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ABE16EBD51AE0FF28C6F5D7 /* Pods-Ice Cream TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream TrackerTests/Pods-Ice Cream TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E382843303713EF59B92B5F /* Pods-Ice Cream TrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream TrackerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream TrackerUITests/Pods-Ice Cream TrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B45C86978203D8BDEC1C39DE /* Pods-Ice Cream TrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream TrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream TrackerUITests/Pods-Ice Cream TrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DE2DE29801A4AA5A79BA8798 /* Pods-Ice Cream Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream Tracker/Pods-Ice Cream Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		EC1BC2B9116041AC4650587F /* Pods-Ice Cream TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream TrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream TrackerTests/Pods-Ice Cream TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		FA6787317B794998972D936E /* Pods_Ice_Cream_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ice_Cream_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCAD2A9130770BEC91B118F9 /* Pods_Ice_Cream_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ice_Cream_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1549A88F225D8B3900FAB5C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306FAD4DCA056DC487B482D8 /* Pods_Ice_Cream_Tracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1549A8A6225D8B3C00FAB5C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0589DC6455AC24F2A2CBEF55 /* Pods_Ice_Cream_TrackerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1549A8B1225D8B3C00FAB5C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2135C5521CFA93B1A93F60B4 /* Pods_Ice_Cream_TrackerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1549A889225D8B3900FAB5C6 = {
+			isa = PBXGroup;
+			children = (
+				1549A894225D8B3900FAB5C6 /* Ice Cream Tracker */,
+				1549A8AC225D8B3C00FAB5C6 /* Ice Cream TrackerTests */,
+				1549A8B7225D8B3C00FAB5C6 /* Ice Cream TrackerUITests */,
+				1549A893225D8B3900FAB5C6 /* Products */,
+				549F2B5ED2EE8C4C031BEC31 /* Pods */,
+				540FE22FEAEE04CF887A6609 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1549A893225D8B3900FAB5C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1549A892225D8B3900FAB5C6 /* Ice Cream Tracker.app */,
+				1549A8A9225D8B3C00FAB5C6 /* Ice Cream TrackerTests.xctest */,
+				1549A8B4225D8B3C00FAB5C6 /* Ice Cream TrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1549A894225D8B3900FAB5C6 /* Ice Cream Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				1549A895225D8B3900FAB5C6 /* AppDelegate.swift */,
+				1549A897225D8B3900FAB5C6 /* ViewController.swift */,
+				1549A899225D8B3900FAB5C6 /* Main.storyboard */,
+				1549A89F225D8B3B00FAB5C6 /* Assets.xcassets */,
+				1549A8A1225D8B3B00FAB5C6 /* LaunchScreen.storyboard */,
+				1549A8A4225D8B3B00FAB5C6 /* Info.plist */,
+				1549A89C225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld */,
+			);
+			path = "Ice Cream Tracker";
+			sourceTree = "<group>";
+		};
+		1549A8AC225D8B3C00FAB5C6 /* Ice Cream TrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				1549A8AD225D8B3C00FAB5C6 /* Ice_Cream_TrackerTests.swift */,
+				1549A8AF225D8B3C00FAB5C6 /* Info.plist */,
+			);
+			path = "Ice Cream TrackerTests";
+			sourceTree = "<group>";
+		};
+		1549A8B7225D8B3C00FAB5C6 /* Ice Cream TrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1549A8B8225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift */,
+				1549A8BA225D8B3C00FAB5C6 /* Info.plist */,
+			);
+			path = "Ice Cream TrackerUITests";
+			sourceTree = "<group>";
+		};
+		540FE22FEAEE04CF887A6609 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCAD2A9130770BEC91B118F9 /* Pods_Ice_Cream_Tracker.framework */,
+				FA6787317B794998972D936E /* Pods_Ice_Cream_TrackerTests.framework */,
+				611D3D73675BDAAED07CF47B /* Pods_Ice_Cream_TrackerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		549F2B5ED2EE8C4C031BEC31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27A6501B26B91A8A99DB790F /* Pods-Ice Cream Tracker.debug.xcconfig */,
+				DE2DE29801A4AA5A79BA8798 /* Pods-Ice Cream Tracker.release.xcconfig */,
+				7ABE16EBD51AE0FF28C6F5D7 /* Pods-Ice Cream TrackerTests.debug.xcconfig */,
+				EC1BC2B9116041AC4650587F /* Pods-Ice Cream TrackerTests.release.xcconfig */,
+				8E382843303713EF59B92B5F /* Pods-Ice Cream TrackerUITests.debug.xcconfig */,
+				B45C86978203D8BDEC1C39DE /* Pods-Ice Cream TrackerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1549A891225D8B3900FAB5C6 /* Ice Cream Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1549A8BD225D8B3C00FAB5C6 /* Build configuration list for PBXNativeTarget "Ice Cream Tracker" */;
+			buildPhases = (
+				FF9C98F7D4CCC771887ABAFB /* [CP] Check Pods Manifest.lock */,
+				1549A88E225D8B3900FAB5C6 /* Sources */,
+				1549A88F225D8B3900FAB5C6 /* Frameworks */,
+				1549A890225D8B3900FAB5C6 /* Resources */,
+				F2D29C4B98B34BF98F0B8CDB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ice Cream Tracker";
+			productName = "Ice Cream Tracker";
+			productReference = 1549A892225D8B3900FAB5C6 /* Ice Cream Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1549A8A8225D8B3C00FAB5C6 /* Ice Cream TrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1549A8C0225D8B3C00FAB5C6 /* Build configuration list for PBXNativeTarget "Ice Cream TrackerTests" */;
+			buildPhases = (
+				D0715598FB6E569B43CC1B1F /* [CP] Check Pods Manifest.lock */,
+				1549A8A5225D8B3C00FAB5C6 /* Sources */,
+				1549A8A6225D8B3C00FAB5C6 /* Frameworks */,
+				1549A8A7225D8B3C00FAB5C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1549A8AB225D8B3C00FAB5C6 /* PBXTargetDependency */,
+			);
+			name = "Ice Cream TrackerTests";
+			productName = "Ice Cream TrackerTests";
+			productReference = 1549A8A9225D8B3C00FAB5C6 /* Ice Cream TrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1549A8B3225D8B3C00FAB5C6 /* Ice Cream TrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1549A8C3225D8B3C00FAB5C6 /* Build configuration list for PBXNativeTarget "Ice Cream TrackerUITests" */;
+			buildPhases = (
+				204B36289D06F61B24796992 /* [CP] Check Pods Manifest.lock */,
+				1549A8B0225D8B3C00FAB5C6 /* Sources */,
+				1549A8B1225D8B3C00FAB5C6 /* Frameworks */,
+				1549A8B2225D8B3C00FAB5C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1549A8B6225D8B3C00FAB5C6 /* PBXTargetDependency */,
+			);
+			name = "Ice Cream TrackerUITests";
+			productName = "Ice Cream TrackerUITests";
+			productReference = 1549A8B4225D8B3C00FAB5C6 /* Ice Cream TrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1549A88A225D8B3900FAB5C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Chris Hovey";
+				TargetAttributes = {
+					1549A891225D8B3900FAB5C6 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					1549A8A8225D8B3C00FAB5C6 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 1549A891225D8B3900FAB5C6;
+					};
+					1549A8B3225D8B3C00FAB5C6 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 1549A891225D8B3900FAB5C6;
+					};
+				};
+			};
+			buildConfigurationList = 1549A88D225D8B3900FAB5C6 /* Build configuration list for PBXProject "Ice Cream Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1549A889225D8B3900FAB5C6;
+			productRefGroup = 1549A893225D8B3900FAB5C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1549A891225D8B3900FAB5C6 /* Ice Cream Tracker */,
+				1549A8A8225D8B3C00FAB5C6 /* Ice Cream TrackerTests */,
+				1549A8B3225D8B3C00FAB5C6 /* Ice Cream TrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1549A890225D8B3900FAB5C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1549A8A3225D8B3B00FAB5C6 /* LaunchScreen.storyboard in Resources */,
+				1549A8A0225D8B3B00FAB5C6 /* Assets.xcassets in Resources */,
+				1549A89B225D8B3900FAB5C6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1549A8A7225D8B3C00FAB5C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1549A8B2225D8B3C00FAB5C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		204B36289D06F61B24796992 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ice Cream TrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0715598FB6E569B43CC1B1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ice Cream TrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2D29C4B98B34BF98F0B8CDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ice Cream Tracker/Pods-Ice Cream Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ice Cream Tracker/Pods-Ice Cream Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF9C98F7D4CCC771887ABAFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ice Cream Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1549A88E225D8B3900FAB5C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1549A898225D8B3900FAB5C6 /* ViewController.swift in Sources */,
+				1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */,
+				1549A89E225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1549A8A5225D8B3C00FAB5C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1549A8AE225D8B3C00FAB5C6 /* Ice_Cream_TrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1549A8B0225D8B3C00FAB5C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1549A8B9225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1549A8AB225D8B3C00FAB5C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1549A891225D8B3900FAB5C6 /* Ice Cream Tracker */;
+			targetProxy = 1549A8AA225D8B3C00FAB5C6 /* PBXContainerItemProxy */;
+		};
+		1549A8B6225D8B3C00FAB5C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1549A891225D8B3900FAB5C6 /* Ice Cream Tracker */;
+			targetProxy = 1549A8B5225D8B3C00FAB5C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1549A899225D8B3900FAB5C6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1549A89A225D8B3900FAB5C6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1549A8A1225D8B3B00FAB5C6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1549A8A2225D8B3B00FAB5C6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1549A8BB225D8B3C00FAB5C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1549A8BC225D8B3C00FAB5C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1549A8BE225D8B3C00FAB5C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A6501B26B91A8A99DB790F /* Pods-Ice Cream Tracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3723XBBGR7;
+				INFOPLIST_FILE = "Ice Cream Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cgranthovey.iceCreamTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1549A8BF225D8B3C00FAB5C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE2DE29801A4AA5A79BA8798 /* Pods-Ice Cream Tracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3723XBBGR7;
+				INFOPLIST_FILE = "Ice Cream Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cgranthovey.iceCreamTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1549A8C1225D8B3C00FAB5C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7ABE16EBD51AE0FF28C6F5D7 /* Pods-Ice Cream TrackerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3723XBBGR7;
+				INFOPLIST_FILE = "Ice Cream TrackerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "my.Ice-Cream-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ice Cream Tracker.app/Ice Cream Tracker";
+			};
+			name = Debug;
+		};
+		1549A8C2225D8B3C00FAB5C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC1BC2B9116041AC4650587F /* Pods-Ice Cream TrackerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3723XBBGR7;
+				INFOPLIST_FILE = "Ice Cream TrackerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "my.Ice-Cream-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ice Cream Tracker.app/Ice Cream Tracker";
+			};
+			name = Release;
+		};
+		1549A8C4225D8B3C00FAB5C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E382843303713EF59B92B5F /* Pods-Ice Cream TrackerUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3723XBBGR7;
+				INFOPLIST_FILE = "Ice Cream TrackerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "my.Ice-Cream-TrackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Ice Cream Tracker";
+			};
+			name = Debug;
+		};
+		1549A8C5225D8B3C00FAB5C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B45C86978203D8BDEC1C39DE /* Pods-Ice Cream TrackerUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3723XBBGR7;
+				INFOPLIST_FILE = "Ice Cream TrackerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "my.Ice-Cream-TrackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Ice Cream Tracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1549A88D225D8B3900FAB5C6 /* Build configuration list for PBXProject "Ice Cream Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1549A8BB225D8B3C00FAB5C6 /* Debug */,
+				1549A8BC225D8B3C00FAB5C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1549A8BD225D8B3C00FAB5C6 /* Build configuration list for PBXNativeTarget "Ice Cream Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1549A8BE225D8B3C00FAB5C6 /* Debug */,
+				1549A8BF225D8B3C00FAB5C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1549A8C0225D8B3C00FAB5C6 /* Build configuration list for PBXNativeTarget "Ice Cream TrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1549A8C1225D8B3C00FAB5C6 /* Debug */,
+				1549A8C2225D8B3C00FAB5C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1549A8C3225D8B3C00FAB5C6 /* Build configuration list for PBXNativeTarget "Ice Cream TrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1549A8C4225D8B3C00FAB5C6 /* Debug */,
+				1549A8C5225D8B3C00FAB5C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1549A89C225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1549A89D225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodel */,
+			);
+			currentVersion = 1549A89D225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodel */;
+			path = Ice_Cream_Tracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1549A88A225D8B3900FAB5C6 /* Project object */;
+}
