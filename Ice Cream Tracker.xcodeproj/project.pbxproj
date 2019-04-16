@@ -8,15 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0589DC6455AC24F2A2CBEF55 /* Pods_Ice_Cream_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6787317B794998972D936E /* Pods_Ice_Cream_TrackerTests.framework */; };
-		1537CAB0225D9F0F003313A0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1537CAAF225D9F0F003313A0 /* Data.swift */; };
 		1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A895225D8B3900FAB5C6 /* AppDelegate.swift */; };
-		1549A898225D8B3900FAB5C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A897225D8B3900FAB5C6 /* ViewController.swift */; };
 		1549A89B225D8B3900FAB5C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1549A899225D8B3900FAB5C6 /* Main.storyboard */; };
 		1549A89E225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1549A89C225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld */; };
 		1549A8A0225D8B3B00FAB5C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1549A89F225D8B3B00FAB5C6 /* Assets.xcassets */; };
 		1549A8A3225D8B3B00FAB5C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1549A8A1225D8B3B00FAB5C6 /* LaunchScreen.storyboard */; };
 		1549A8AE225D8B3C00FAB5C6 /* Ice_Cream_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A8AD225D8B3C00FAB5C6 /* Ice_Cream_TrackerTests.swift */; };
 		1549A8B9225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549A8B8225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift */; };
+		1560DF0E226296C700781094 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF0D226296C700781094 /* ListVC.swift */; };
+		1560DF132262987200781094 /* IceCream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF122262987200781094 /* IceCream.swift */; };
+		1560DF152262990500781094 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF142262990500781094 /* Location.swift */; };
+		1560DF1722629D5C00781094 /* IceCreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF1622629D5C00781094 /* IceCreamCell.swift */; };
+		1560DF202262A6FD00781094 /* CameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF1E2262A6FD00781094 /* CameraCell.swift */; };
+		1560DF212262A6FD00781094 /* CameraCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1560DF1F2262A6FD00781094 /* CameraCell.xib */; };
+		1560DF232262A92E00781094 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF222262A92E00781094 /* CameraVC.swift */; };
+		158765B5226551FD006BF9E4 /* TakePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765B4226551FD006BF9E4 /* TakePhoto.swift */; };
 		2135C5521CFA93B1A93F60B4 /* Pods_Ice_Cream_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611D3D73675BDAAED07CF47B /* Pods_Ice_Cream_TrackerUITests.framework */; };
 		306FAD4DCA056DC487B482D8 /* Pods_Ice_Cream_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD2A9130770BEC91B118F9 /* Pods_Ice_Cream_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -39,10 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1537CAAF225D9F0F003313A0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		1549A892225D8B3900FAB5C6 /* Ice Cream Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ice Cream Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1549A895225D8B3900FAB5C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1549A897225D8B3900FAB5C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1549A89A225D8B3900FAB5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1549A89D225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ice_Cream_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		1549A89F225D8B3B00FAB5C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +58,14 @@
 		1549A8B4225D8B3C00FAB5C6 /* Ice Cream TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ice Cream TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1549A8B8225D8B3C00FAB5C6 /* Ice_Cream_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ice_Cream_TrackerUITests.swift; sourceTree = "<group>"; };
 		1549A8BA225D8B3C00FAB5C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1560DF0D226296C700781094 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		1560DF122262987200781094 /* IceCream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCream.swift; sourceTree = "<group>"; };
+		1560DF142262990500781094 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		1560DF1622629D5C00781094 /* IceCreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamCell.swift; sourceTree = "<group>"; };
+		1560DF1E2262A6FD00781094 /* CameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCell.swift; sourceTree = "<group>"; };
+		1560DF1F2262A6FD00781094 /* CameraCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCell.xib; sourceTree = "<group>"; };
+		1560DF222262A92E00781094 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		158765B4226551FD006BF9E4 /* TakePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhoto.swift; sourceTree = "<group>"; };
 		27A6501B26B91A8A99DB790F /* Pods-Ice Cream Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream Tracker/Pods-Ice Cream Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		611D3D73675BDAAED07CF47B /* Pods_Ice_Cream_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ice_Cream_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABE16EBD51AE0FF28C6F5D7 /* Pods-Ice Cream TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream TrackerTests/Pods-Ice Cream TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +108,8 @@
 		1537CAAE225D9EF9003313A0 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				1537CAAF225D9F0F003313A0 /* Data.swift */,
+				1560DF142262990500781094 /* Location.swift */,
+				1560DF122262987200781094 /* IceCream.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -126,9 +139,10 @@
 		1549A894225D8B3900FAB5C6 /* Ice Cream Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				1537CAAE225D9EF9003313A0 /* Data Model */,
 				1549A895225D8B3900FAB5C6 /* AppDelegate.swift */,
-				1549A897225D8B3900FAB5C6 /* ViewController.swift */,
+				1537CAAE225D9EF9003313A0 /* Data Model */,
+				1560DF0F2262977900781094 /* View */,
+				1560DF0C2262900F00781094 /* VC */,
 				1549A899225D8B3900FAB5C6 /* Main.storyboard */,
 				1549A89F225D8B3B00FAB5C6 /* Assets.xcassets */,
 				1549A8A1225D8B3B00FAB5C6 /* LaunchScreen.storyboard */,
@@ -154,6 +168,26 @@
 				1549A8BA225D8B3C00FAB5C6 /* Info.plist */,
 			);
 			path = "Ice Cream TrackerUITests";
+			sourceTree = "<group>";
+		};
+		1560DF0C2262900F00781094 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				1560DF0D226296C700781094 /* ListVC.swift */,
+				1560DF222262A92E00781094 /* CameraVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		1560DF0F2262977900781094 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1560DF1622629D5C00781094 /* IceCreamCell.swift */,
+				1560DF1E2262A6FD00781094 /* CameraCell.swift */,
+				1560DF1F2262A6FD00781094 /* CameraCell.xib */,
+				158765B4226551FD006BF9E4 /* TakePhoto.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		540FE22FEAEE04CF887A6609 /* Frameworks */ = {
@@ -287,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1560DF212262A6FD00781094 /* CameraCell.xib in Resources */,
 				1549A8A3225D8B3B00FAB5C6 /* LaunchScreen.storyboard in Resources */,
 				1549A8A0225D8B3B00FAB5C6 /* Assets.xcassets in Resources */,
 				1549A89B225D8B3900FAB5C6 /* Main.storyboard in Resources */,
@@ -391,10 +426,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1549A898225D8B3900FAB5C6 /* ViewController.swift in Sources */,
+				1560DF0E226296C700781094 /* ListVC.swift in Sources */,
+				1560DF202262A6FD00781094 /* CameraCell.swift in Sources */,
+				1560DF132262987200781094 /* IceCream.swift in Sources */,
+				1560DF232262A92E00781094 /* CameraVC.swift in Sources */,
+				158765B5226551FD006BF9E4 /* TakePhoto.swift in Sources */,
+				1560DF1722629D5C00781094 /* IceCreamCell.swift in Sources */,
+				1560DF152262990500781094 /* Location.swift in Sources */,
 				1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */,
 				1549A89E225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld in Sources */,
-				1537CAB0225D9F0F003313A0 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

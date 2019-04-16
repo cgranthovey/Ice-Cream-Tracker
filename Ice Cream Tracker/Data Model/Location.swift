@@ -1,15 +1,15 @@
 //
-//  Data.swift
+//  Location.swift
 //  Ice Cream Tracker
 //
-//  Created by Christopher Hovey on 4/9/19.
+//  Created by Christopher Hovey on 4/13/19.
 //  Copyright © 2019 Chris Hovey. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class Data: Object{
+class Location: Object{
     @objc dynamic var name: String = ""
-    @objc dynamic var age: Int = 0
+    var iceCreams = List<IceCream>()
 }
