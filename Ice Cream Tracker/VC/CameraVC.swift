@@ -14,6 +14,7 @@ class CameraVC: UIViewController {
     @IBOutlet weak var viewTakePhoto: UIView!
     @IBOutlet weak var btnTakePhoto: UIButton!
     
+    
     var captureSession = AVCaptureSession()
     var backCamera: AVCaptureDevice?
     var frontCamera: AVCaptureDevice?
@@ -29,15 +30,20 @@ class CameraVC: UIViewController {
         setUpInputOutput()
         setUpPreviewLayer()
         startRunningCaptureSession()
+        print("viewDidLoad")
     }
     
     //MARK: - IBActions
     
     @IBAction func cameraBtnPress(_ sender: AnyObject){
-        var settings = AVCapturePhotoSettings()
+        let settings = AVCapturePhotoSettings()
+        print("capture")
         photoOutput?.capturePhoto(with: settings, delegate: self)
     }
     
+    @IBAction func exitBtnPress(_ sender: AnyObject){
+        dismiss(animated: true, completion: nil)
+    }
     
     //MARK: - Functions
     
@@ -94,6 +100,12 @@ class CameraVC: UIViewController {
 
 extension CameraVC: AVCapturePhotoCaptureDelegate{
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        photo.
+        
+        if let imgData = photo.fileDataRepresentation(), let image = UIImage(data: imgData){
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+                vc.img = image
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 }

@@ -18,13 +18,17 @@ class TakePhotoBtn: UIButton {
         titleLabel?.text = ""
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        alpha = 1
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        alpha = 1
+//    }
+//    
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        alpha = 0.5
+//    }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        alpha = 0.5
-    }
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        alpha = 0.5
+//    }
     
 }
 

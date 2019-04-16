@@ -23,6 +23,9 @@
 		1560DF212262A6FD00781094 /* CameraCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1560DF1F2262A6FD00781094 /* CameraCell.xib */; };
 		1560DF232262A92E00781094 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF222262A92E00781094 /* CameraVC.swift */; };
 		158765B5226551FD006BF9E4 /* TakePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765B4226551FD006BF9E4 /* TakePhoto.swift */; };
+		158765B722655DC6006BF9E4 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765B622655DC6006BF9E4 /* PhotoVC.swift */; };
+		158765B9226589D6006BF9E4 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765B8226589D6006BF9E4 /* AddVC.swift */; };
+		158765BB22659259006BF9E4 /* StarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765BA22659259006BF9E4 /* StarCell.swift */; };
 		2135C5521CFA93B1A93F60B4 /* Pods_Ice_Cream_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611D3D73675BDAAED07CF47B /* Pods_Ice_Cream_TrackerUITests.framework */; };
 		306FAD4DCA056DC487B482D8 /* Pods_Ice_Cream_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAD2A9130770BEC91B118F9 /* Pods_Ice_Cream_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +69,9 @@
 		1560DF1F2262A6FD00781094 /* CameraCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCell.xib; sourceTree = "<group>"; };
 		1560DF222262A92E00781094 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		158765B4226551FD006BF9E4 /* TakePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhoto.swift; sourceTree = "<group>"; };
+		158765B622655DC6006BF9E4 /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
+		158765B8226589D6006BF9E4 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
+		158765BA22659259006BF9E4 /* StarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCell.swift; sourceTree = "<group>"; };
 		27A6501B26B91A8A99DB790F /* Pods-Ice Cream Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream Tracker/Pods-Ice Cream Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		611D3D73675BDAAED07CF47B /* Pods_Ice_Cream_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ice_Cream_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABE16EBD51AE0FF28C6F5D7 /* Pods-Ice Cream TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ice Cream TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ice Cream TrackerTests/Pods-Ice Cream TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 			children = (
 				1560DF0D226296C700781094 /* ListVC.swift */,
 				1560DF222262A92E00781094 /* CameraVC.swift */,
+				158765B622655DC6006BF9E4 /* PhotoVC.swift */,
+				158765B8226589D6006BF9E4 /* AddVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				1560DF1E2262A6FD00781094 /* CameraCell.swift */,
 				1560DF1F2262A6FD00781094 /* CameraCell.xib */,
 				158765B4226551FD006BF9E4 /* TakePhoto.swift */,
+				158765BA22659259006BF9E4 /* StarCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -429,8 +438,11 @@
 				1560DF0E226296C700781094 /* ListVC.swift in Sources */,
 				1560DF202262A6FD00781094 /* CameraCell.swift in Sources */,
 				1560DF132262987200781094 /* IceCream.swift in Sources */,
+				158765B722655DC6006BF9E4 /* PhotoVC.swift in Sources */,
+				158765B9226589D6006BF9E4 /* AddVC.swift in Sources */,
 				1560DF232262A92E00781094 /* CameraVC.swift in Sources */,
 				158765B5226551FD006BF9E4 /* TakePhoto.swift in Sources */,
+				158765BB22659259006BF9E4 /* StarCell.swift in Sources */,
 				1560DF1722629D5C00781094 /* IceCreamCell.swift in Sources */,
 				1560DF152262990500781094 /* Location.swift in Sources */,
 				1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */,
