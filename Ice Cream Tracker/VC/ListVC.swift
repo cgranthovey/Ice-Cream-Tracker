@@ -8,12 +8,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var iceCreams = [IceCream]()
+    var iceCreams: Results<IceCream>?
+    let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +23,31 @@ class ListVC: UIViewController {
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+    }
+    
     //MARK: -IBActions
     
-    @IBAction func barBtnPress(_ sender: AnyObject){
+    
+    //MARK: -Functions
+    
+    func getData(){
         
+        do{
+            let realm2 = try Realm()
+            iceCreams = realm2.objects(IceCream.self)
+            tableView.reloadData()
+        } catch{
+            print("error getting realm", error.localizedDescription)
+        }
+        
+//        iceCreams = realm.objects(IceCream.self)
+//        tableView.reloadData()
+        print("get iceCreams", iceCreams?.count)
+
     }
+    
 
 }
 
@@ -34,7 +56,8 @@ class ListVC: UIViewController {
 extension ListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? IceCreamCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? IceCreamCell, let iceCreams = iceCreams{
+            print("configure that")
             cell.configure(item: iceCreams[indexPath.row])
             return cell
         }
@@ -42,11 +65,16 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return iceCreams.count
+        print("configure count", iceCreams?.count)
+        return iceCreams?.count ?? 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
     
 }

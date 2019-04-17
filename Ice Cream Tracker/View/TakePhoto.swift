@@ -16,19 +16,35 @@ class TakePhotoBtn: UIButton {
         alpha = 0.5
         backgroundColor = UIColor.white
         titleLabel?.text = ""
+        
+        addTarget(self, action: #selector(buttonSolid), for: .touchDown)
+        addTarget(self, action: #selector(buttonAlpha), for: .touchDragExit)
+        addTarget(self, action: #selector(animate), for: .touchUpInside)
+        print("button awake from nib")
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        alpha = 1
-//    }
-//    
-//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        alpha = 0.5
-//    }
+    @objc func buttonSolid(){
+        alpha = 1
+    }
     
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        alpha = 0.5
-//    }
+    @objc func buttonAlpha(){
+        alpha = 0.5
+    }
+    
+    @objc func animate(){
+        alpha = 0.5
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }) { (success) in
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+                self.transform = .identity
+            }, completion: { (success) in
+            })
+        }
+        
+    }
+    
+    
     
 }
 

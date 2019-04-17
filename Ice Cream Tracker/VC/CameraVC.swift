@@ -33,17 +33,29 @@ class CameraVC: UIViewController {
         print("viewDidLoad")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        btnTakePhoto.isEnabled = true
+    }
+    
     //MARK: - IBActions
     
     @IBAction func cameraBtnPress(_ sender: AnyObject){
         let settings = AVCapturePhotoSettings()
         print("capture")
         photoOutput?.capturePhoto(with: settings, delegate: self)
+        btnTakePhoto.isEnabled = false
     }
     
     @IBAction func exitBtnPress(_ sender: AnyObject){
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func skipButtonPress(_ sender: AnyObject){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
     
     //MARK: - Functions
     
@@ -88,8 +100,8 @@ class CameraVC: UIViewController {
         cameraPreviewLayer?.connection?.videoOrientation = .portrait
         cameraPreviewLayer?.frame = self.view.frame
         self.view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
-        
     }
+    
     func startRunningCaptureSession(){
         captureSession.startRunning()
     }
@@ -101,10 +113,24 @@ class CameraVC: UIViewController {
 extension CameraVC: AVCapturePhotoCaptureDelegate{
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
+        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
+            return
+        }
+        let urlPath = String(Date().timeIntervalSince1970)
+        let imageURL = url.appendingPathComponent(urlPath)
+        
         if let imgData = photo.fileDataRepresentation(), let image = UIImage(data: imgData){
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
-                vc.img = image
-                self.navigationController?.pushViewController(vc, animated: true)
+            do{
+                try imgData.write(to: imageURL)
+                if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+                    vc.img = image
+                    vc.urlPath = urlPath
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            } catch{
+                print("saving image failed")
             }
         }
     }
