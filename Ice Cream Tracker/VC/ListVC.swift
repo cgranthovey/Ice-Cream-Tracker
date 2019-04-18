@@ -18,7 +18,9 @@ class ListVC: UIViewController {
     let realm = try! Realm()
 
     override func viewDidLoad() {
+        print("listVC")
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -37,6 +39,7 @@ class ListVC: UIViewController {
         do{
             let realm2 = try Realm()
             iceCreams = realm2.objects(IceCream.self)
+            iceCreams = iceCreams?.sorted(byKeyPath: "date", ascending: false)
             tableView.reloadData()
         } catch{
             print("error getting realm", error.localizedDescription)

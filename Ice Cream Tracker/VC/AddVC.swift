@@ -66,7 +66,7 @@ class AddVC: UIViewController {
             print("error saving data", error.localizedDescription)
         }
 
-
+        dismiss(animated: true, completion: nil)
         
     }
     
