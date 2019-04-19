@@ -23,6 +23,8 @@ class ListVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 130
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,11 +46,16 @@ class ListVC: UIViewController {
         } catch{
             print("error getting realm", error.localizedDescription)
         }
-        
-//        iceCreams = realm.objects(IceCream.self)
-//        tableView.reloadData()
-        print("get iceCreams", iceCreams?.count)
-
+    }
+    
+    func deleteIceCream(iceCream: IceCream){
+        do{
+            try realm.write {
+                realm.delete(iceCream)
+            }
+        } catch{
+            print("error deleting item", error)
+        }
     }
     
 
@@ -72,12 +79,27 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
         return iceCreams?.count ?? 1
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            if iceCreams != nil{
+                tableView.deleteRows(at: [indexPath], with: .bottom)
+                deleteIceCream(iceCream: iceCreams![indexPath.row])
+            }
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return UITableView.automaticDimension
+        
+//        return 130
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
 }
