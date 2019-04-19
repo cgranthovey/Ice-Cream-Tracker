@@ -48,10 +48,13 @@ class ListVC: UIViewController {
         }
     }
     
-    func deleteIceCream(iceCream: IceCream){
+    func deleteIceCream(indexPath: IndexPath){
+        
         do{
+            let iceCream = iceCreams![indexPath.row]
             try realm.write {
                 realm.delete(iceCream)
+                tableView.deleteRows(at: [indexPath], with: .bottom)
             }
         } catch{
             print("error deleting item", error)
@@ -82,8 +85,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             if iceCreams != nil{
-                tableView.deleteRows(at: [indexPath], with: .bottom)
-                deleteIceCream(iceCream: iceCreams![indexPath.row])
+                deleteIceCream(indexPath: indexPath)
             }
         }
     }
@@ -100,6 +102,13 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+            vc.editingIceCream = iceCreams?[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

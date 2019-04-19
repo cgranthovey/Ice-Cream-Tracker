@@ -23,6 +23,7 @@ class AddVC: UIViewController {
     var stars = 5
     var starsSelectedCount: Double?
     var urlPath: String?
+    var editingIceCream: IceCream?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,37 +37,61 @@ class AddVC: UIViewController {
         setUpUI()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dropKB))
-//        tap.cancelsTouchesInView = false
+        //        tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
         
         tap.delegate = self
     }
     
     //MARK: - IBActions
-
+    
     @IBAction func saveBtnPress(_ sender: AnyObject){
         print("save btn press")
         
-        let iceCream = IceCream()
-        if let flavor = tfFlavor.text{
-            iceCream.flavor = flavor
-        }
-        if let starsSelectedCount = starsSelectedCount{
-            iceCream.rating = starsSelectedCount
-        }
-        iceCream.date = Date()
-        iceCream.imagePath = urlPath
-        
-        do{
-            let realm = try Realm()
-            try realm.write {
-                realm.add(iceCream)
+        if let iceCream = editingIceCream{
+            
+            do{
+                let realm = try Realm()
+                try realm.write {
+                    iceCream.imagePath = urlPath
+                    if let flavor = tfFlavor.text{
+                        iceCream.flavor = flavor
+                    }
+                    if let starsSelectedCount = starsSelectedCount{
+                        iceCream.rating = starsSelectedCount
+                    }
+                }
+            } catch{
+                print("error udpating realm", error.localizedDescription)
             }
-        } catch{
-            print("error saving data", error.localizedDescription)
+        } else{
+            let iceCream = IceCream()
+            if let flavor = tfFlavor.text{
+                iceCream.flavor = flavor
+            }
+            if let starsSelectedCount = starsSelectedCount{
+                iceCream.rating = starsSelectedCount
+            }
+            iceCream.date = Date()
+            iceCream.imagePath = urlPath
+            
+            do{
+                let realm = try Realm()
+                try realm.write {
+                    realm.add(iceCream)
+                }
+            } catch{
+                print("error saving data", error.localizedDescription)
+            }
         }
-
-        dismiss(animated: true, completion: nil)
+        
+        
+        if editingIceCream != nil{
+            self.navigationController?.popViewController(animated: true)
+        } else{
+            dismiss(animated: true, completion: nil)
+        }
+        
         
     }
     
@@ -77,7 +102,18 @@ class AddVC: UIViewController {
     //MARK: - Functions
     
     func setUpUI(){
-//        collectionView.canCancelContentTouches = true
+        //        collectionView.canCancelContentTouches = true
+        if let iceCream = editingIceCream{
+            tfFlavor.text = iceCream.flavor
+            starsSelectedCount = iceCream.rating
+            urlPath = iceCream.imagePath
+            if let path = iceCream.imagePath{
+                if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+                    let imgURL = url.appendingPathComponent(path)
+                    imgView.image = UIImage(contentsOfFile: imgURL.path)
+                }
+            }
+        }
     }
     
     @objc func dropKB(){
@@ -107,6 +143,13 @@ extension AddVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? StarCell{
             cell.imgView.image = UIImage(named: "starEmpty")
+            
+            if let starsSelectedCount = starsSelectedCount, starsSelectedCount > 0.0{
+                if starsSelectedCount > Double(indexPath.row){
+                    cell.imgView.image = UIImage(named: "starFilled")
+                }
+            }
+            
             return cell
         }
         return UICollectionViewCell()
