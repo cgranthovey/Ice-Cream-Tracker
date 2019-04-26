@@ -24,6 +24,8 @@ class AddVC: UIViewController {
     var starsSelectedCount: Double?
     var urlPath: String?
     var editingIceCream: IceCream?
+    var hasLocations = false
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,21 +37,18 @@ class AddVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         setUpUI()
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dropKB))
-        //        tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
         tap.delegate = self
+        
+        tfLocation.delegate = self
     }
     
     //MARK: - IBActions
     
     @IBAction func saveBtnPress(_ sender: AnyObject){
         print("save btn press")
-        
         if let iceCream = editingIceCream{
-            
             do{
                 let realm = try Realm()
                 try realm.write {
@@ -74,6 +73,22 @@ class AddVC: UIViewController {
             }
             iceCream.date = Date()
             iceCream.imagePath = urlPath
+            
+            let location = Location()
+            if let locationText = tfLocation.text{
+                location.name = locationText
+                location.iceCreams.append(iceCream)
+                do{
+                    let realm = try Realm()
+                    try realm.write {
+                        realm.add(location)
+                    }
+                } catch{
+                    print("error saving data", error.localizedDescription)
+                }
+            }
+            
+            
             
             do{
                 let realm = try Realm()
@@ -113,6 +128,14 @@ class AddVC: UIViewController {
                     imgView.image = UIImage(contentsOfFile: imgURL.path)
                 }
             }
+        }
+        checkIfLocations()
+    }
+    
+    func checkIfLocations(){
+        let locations = realm.objects(Location.self)
+        if locations.count > 0 {
+            hasLocations = true
         }
     }
     
@@ -197,5 +220,48 @@ extension AddVC: UIGestureRecognizerDelegate{
             return false
         }
         return true
+    }
+    
+    
+}
+
+
+extension AddVC: UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == tfLocation && hasLocations{
+//            performSegue(withIdentifier: "PopupVC", sender: nil)
+            print("show tfLocation1")
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "PopupVC") as? PopupVC{
+                vc.modalPresentationStyle = .popover
+                vc.delegate = self
+                if let popover = vc.popoverPresentationController{
+                    popover.sourceView = tfLocation
+                    popover.sourceRect = tfLocation.bounds
+                    vc.preferredContentSize = CGSize(width: 250, height: 350)
+                    popover.delegate = self
+                    self.present(vc, animated: true, completion: nil)
+                }
+                
+            }
+            return false
+        }
+        
+        return true
+    }
+}
+
+extension AddVC: UIPopoverPresentationControllerDelegate{
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+extension AddVC: PopupVCDelegate{
+    func locationPress(location: Location){
+        tfLocation.text = location.name
+    }
+    func addNewLocation(){
+        tfLocation.becomeFirstResponder()
+        print("add new lcoations")
     }
 }

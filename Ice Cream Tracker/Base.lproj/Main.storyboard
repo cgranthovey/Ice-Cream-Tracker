@@ -46,16 +46,16 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="w5W-ZB-2Y2">
                                                                     <rect key="frame" x="145" y="0.0" width="229" height="107"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYi-VG-bOc">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReJ-MA-qgD">
                                                                             <rect key="frame" x="0.0" y="0.0" width="229" height="23"/>
                                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReJ-MA-qgD">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYi-VG-bOc">
                                                                             <rect key="frame" x="0.0" y="28" width="229" height="23"/>
                                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jd2-N6-CPQ">
@@ -134,6 +134,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="88.043478260869577"/>
+        </scene>
+        <!--PopupVC-->
+        <scene sceneID="WWy-yP-Rwd">
+            <objects>
+                <viewController storyboardIdentifier="PopupVC" id="Avh-f3-u7K" customClass="PopupVC" customModule="Ice_Cream_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VNW-fY-pTR">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Z3-Um-VUT">
+                                <rect key="frame" x="0.0" y="55" width="200" height="245"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="OaM-Zv-eLO" customClass="PopUpCell" customModule="Ice_Cream_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="200" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OaM-Zv-eLO" id="aZ7-7u-6bo">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="lhm-1N-8Ob">
+                                                    <rect key="frame" x="19.999999999999996" y="12.666666666666666" width="39.666666666666657" height="18.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lhm-1N-8Ob" firstAttribute="leading" secondItem="aZ7-7u-6bo" secondAttribute="leading" constant="20" id="9F8-4A-NZx"/>
+                                                <constraint firstItem="lhm-1N-8Ob" firstAttribute="centerY" secondItem="aZ7-7u-6bo" secondAttribute="centerY" id="pbD-BB-l1d"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lbl" destination="lhm-1N-8Ob" id="b0I-9m-5GO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cr-3j-qcz">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1U0-LJ-Yw6">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="55"/>
+                                        <color key="backgroundColor" red="1" green="0.38823529410000002" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                        <state key="normal" title="Add New">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newPress:" destination="Avh-f3-u7K" eventType="touchUpInside" id="bTP-cJ-lAP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="1U0-LJ-Yw6" firstAttribute="leading" secondItem="4cr-3j-qcz" secondAttribute="leading" id="2sL-eT-usD"/>
+                                    <constraint firstAttribute="bottom" secondItem="1U0-LJ-Yw6" secondAttribute="bottom" id="8Zy-so-SUL"/>
+                                    <constraint firstAttribute="height" constant="55" id="EG5-6l-PYx"/>
+                                    <constraint firstItem="1U0-LJ-Yw6" firstAttribute="top" secondItem="4cr-3j-qcz" secondAttribute="top" id="kwm-4f-w14"/>
+                                    <constraint firstAttribute="trailing" secondItem="1U0-LJ-Yw6" secondAttribute="trailing" id="xQb-bL-1xf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4cr-3j-qcz" firstAttribute="top" secondItem="VNW-fY-pTR" secondAttribute="top" id="Gti-Ld-pfH"/>
+                            <constraint firstAttribute="trailing" secondItem="7Z3-Um-VUT" secondAttribute="trailing" id="MfW-yG-J5U"/>
+                            <constraint firstItem="4cr-3j-qcz" firstAttribute="leading" secondItem="VNW-fY-pTR" secondAttribute="leading" id="ZOw-8n-UFP"/>
+                            <constraint firstItem="7Z3-Um-VUT" firstAttribute="top" secondItem="4cr-3j-qcz" secondAttribute="bottom" id="aDS-he-tDY"/>
+                            <constraint firstItem="7Z3-Um-VUT" firstAttribute="leading" secondItem="PVe-EM-dso" secondAttribute="leading" id="qAn-vh-1Rz"/>
+                            <constraint firstAttribute="trailing" secondItem="4cr-3j-qcz" secondAttribute="trailing" id="rq6-ds-YpL"/>
+                            <constraint firstItem="PVe-EM-dso" firstAttribute="bottom" secondItem="7Z3-Um-VUT" secondAttribute="bottom" id="uEK-b8-3eQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PVe-EM-dso"/>
+                    </view>
+                    <size key="freeformSize" width="200" height="300"/>
+                    <connections>
+                        <outlet property="tableView" destination="7Z3-Um-VUT" id="xnI-Yu-6je"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szy-0w-YpB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3679.7101449275365" y="672.554347826087"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Upt-FD-6A3">

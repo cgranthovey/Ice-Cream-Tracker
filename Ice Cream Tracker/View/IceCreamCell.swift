@@ -12,7 +12,6 @@ class IceCreamCell: UITableViewCell {
     
     @IBOutlet weak var lblFlavor: UILabel!
     @IBOutlet weak var lblLocation: UILabel!
-    @IBOutlet weak var lblRating: UILabel!
     @IBOutlet weak var viewRating: UIView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var imgView: UIImageView!
@@ -28,6 +27,10 @@ class IceCreamCell: UITableViewCell {
             lblFlavor.isHidden = false
         } else{
             lblFlavor.isHidden = true
+        }
+
+        if let location = item.location.first?.name{
+            lblLocation.text = location
         }
         
         if let location = item.location.first{
@@ -59,18 +62,16 @@ class IceCreamCell: UITableViewCell {
     }
     
     func addRatings(count: Int){
-        
         print("check count", count)
+        viewRating.subviews.forEach({ $0.removeFromSuperview() })
         for i in 0 ..< count{
             print("check i", i)
             let xValue = i == 0 ? 20 * i : (20 + 3) * i
             print("check xValue", xValue)
+            
             let ratingImgView = UIImageView(frame: CGRect(x: xValue, y: 0, width: 20, height: 20))
             ratingImgView.image = UIImage(named: "starSmall")
             viewRating.addSubview(ratingImgView)
         }
-        
     }
-
-
 }
