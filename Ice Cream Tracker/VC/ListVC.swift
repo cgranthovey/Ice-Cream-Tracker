@@ -86,6 +86,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
         if editingStyle == .delete{
             if iceCreams != nil{
                 deleteIceCream(indexPath: indexPath)
+                tableView.deleteRows(at: [indexPath], with: .bottom)
             }
         }
     }

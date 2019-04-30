@@ -26,6 +26,8 @@ class AddVC: UIViewController {
     var editingIceCream: IceCream?
     var hasLocations = false
     let realm = try! Realm()
+    var shouldAddNewLocation = false
+    var selectedLocation: Location?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,8 @@ class AddVC: UIViewController {
             } catch{
                 print("error udpating realm", error.localizedDescription)
             }
+            addLocation(with: iceCream)
+
         } else{
             let iceCream = IceCream()
             if let flavor = tfFlavor.text{
@@ -74,21 +78,7 @@ class AddVC: UIViewController {
             iceCream.date = Date()
             iceCream.imagePath = urlPath
             
-            let location = Location()
-            if let locationText = tfLocation.text{
-                location.name = locationText
-                location.iceCreams.append(iceCream)
-                do{
-                    let realm = try Realm()
-                    try realm.write {
-                        realm.add(location)
-                    }
-                } catch{
-                    print("error saving data", error.localizedDescription)
-                }
-            }
-            
-            
+            addLocation(with: iceCream)
             
             do{
                 let realm = try Realm()
@@ -119,6 +109,10 @@ class AddVC: UIViewController {
     func setUpUI(){
         //        collectionView.canCancelContentTouches = true
         if let iceCream = editingIceCream{
+            print("ice cream locations here", iceCream.location.count)
+            if let firstLocation = iceCream.location.first{
+                tfLocation.text = firstLocation.name
+            }
             tfFlavor.text = iceCream.flavor
             starsSelectedCount = iceCream.rating
             urlPath = iceCream.imagePath
@@ -130,6 +124,36 @@ class AddVC: UIViewController {
             }
         }
         checkIfLocations()
+    }
+    
+    func addLocation(with iceCream: IceCream){
+        
+        if let location = selectedLocation{
+            do{
+                try realm.write {
+                    location.iceCreams.append(iceCream)
+                }
+            } catch{
+            }
+
+        } else if let locationText = tfLocation.text, locationText != ""{
+            let location = Location()
+            location.name = locationText
+            location.iceCreams.append(iceCream)
+            do{
+                try realm.write {
+                    
+                    
+                    let realm = try Realm()
+                    try realm.write {
+                        realm.add(location)
+                    }
+                }
+            } catch{
+                
+            }
+
+        }
     }
     
     func checkIfLocations(){
@@ -228,8 +252,9 @@ extension AddVC: UIGestureRecognizerDelegate{
 
 extension AddVC: UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == tfLocation && hasLocations{
+        if textField == tfLocation && hasLocations && shouldAddNewLocation == false{
 //            performSegue(withIdentifier: "PopupVC", sender: nil)
+            
             print("show tfLocation1")
             if let vc = storyboard?.instantiateViewController(withIdentifier: "PopupVC") as? PopupVC{
                 vc.modalPresentationStyle = .popover
@@ -245,7 +270,7 @@ extension AddVC: UITextFieldDelegate{
             }
             return false
         }
-        
+        shouldAddNewLocation = false
         return true
     }
 }
@@ -259,8 +284,11 @@ extension AddVC: UIPopoverPresentationControllerDelegate{
 extension AddVC: PopupVCDelegate{
     func locationPress(location: Location){
         tfLocation.text = location.name
+        selectedLocation = location
     }
     func addNewLocation(){
+        shouldAddNewLocation = true
+        tfLocation.text = ""
         tfLocation.becomeFirstResponder()
         print("add new lcoations")
     }

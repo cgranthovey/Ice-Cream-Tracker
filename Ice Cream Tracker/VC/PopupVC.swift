@@ -45,6 +45,19 @@ class PopupVC: UIViewController {
 
 extension PopupVC: UITableViewDelegate, UITableViewDataSource{
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete, let locations = locations{
+            do{
+                try realm.write {
+                    realm.delete(locations[indexPath.row])
+                }
+                tableView.deleteRows(at: [indexPath], with: .bottom)
+            } catch{
+                print("error deleting", error.localizedDescription)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let delegate = delegate, let locations = locations{
             delegate.locationPress(location: locations[indexPath.row])
