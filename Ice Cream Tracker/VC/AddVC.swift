@@ -27,7 +27,9 @@ class AddVC: UIViewController {
     var hasLocations = false
     let realm = try! Realm()
     var shouldAddNewLocation = false
+    var addNewLocationPress = false
     var selectedLocation: Location?
+    var locationsCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,7 @@ class AddVC: UIViewController {
         tap.delegate = self
         
         tfLocation.delegate = self
+        self.navigationController?.title = "Edit Details"
     }
     
     //MARK: - IBActions
@@ -51,9 +54,11 @@ class AddVC: UIViewController {
     @IBAction func saveBtnPress(_ sender: AnyObject){
         print("save btn press")
         if let iceCream = editingIceCream{
+            print("save btn press2")
             do{
                 let realm = try Realm()
                 try realm.write {
+                    print("save btn press")
                     iceCream.imagePath = urlPath
                     if let flavor = tfFlavor.text{
                         iceCream.flavor = flavor
@@ -102,6 +107,7 @@ class AddVC: UIViewController {
     
     @IBAction func backBtnPress(_ sender: AnyObject){
         self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Functions
@@ -109,7 +115,6 @@ class AddVC: UIViewController {
     func setUpUI(){
         //        collectionView.canCancelContentTouches = true
         if let iceCream = editingIceCream{
-            print("ice cream locations here", iceCream.location.count)
             if let firstLocation = iceCream.location.first{
                 tfLocation.text = firstLocation.name
             }
@@ -127,38 +132,51 @@ class AddVC: UIViewController {
     }
     
     func addLocation(with iceCream: IceCream){
-        
+        print("addLocation1")
         if let location = selectedLocation{
+            print("addLocation2")
             do{
                 try realm.write {
-                    location.iceCreams.append(iceCream)
+                    if let location = iceCream.location.first{
+                        if let index = location.iceCreams.index(of: iceCream){
+                            location.iceCreams.remove(at: index)
+                        }
+                    }
+                    
+                    if !location.iceCreams.contains(iceCream){
+                        print("addLocation2.2")
+                        location.iceCreams.append(iceCream)
+                    }
                 }
             } catch{
             }
 
-        } else if let locationText = tfLocation.text, locationText != ""{
+        } else if let locationText = tfLocation.text, locationText != "", addNewLocationPress == true || locationsCount == 0 {
+            print("addLocation3")
             let location = Location()
             location.name = locationText
             location.iceCreams.append(iceCream)
             do{
                 try realm.write {
-                    
-                    
-                    let realm = try Realm()
-                    try realm.write {
-                        realm.add(location)
+                    if let location = iceCream.location.first{
+                        if let index = location.iceCreams.index(of: iceCream){
+                            location.iceCreams.remove(at: index)
+                        }
                     }
+                    let realm = try Realm()
+                    print("addLocation3.3")
+                    realm.add(location)
                 }
             } catch{
                 
             }
-
         }
     }
     
     func checkIfLocations(){
         let locations = realm.objects(Location.self)
         if locations.count > 0 {
+            locationsCount = locations.count
             hasLocations = true
         }
     }
@@ -285,11 +303,14 @@ extension AddVC: PopupVCDelegate{
     func locationPress(location: Location){
         tfLocation.text = location.name
         selectedLocation = location
+        addNewLocationPress = false
     }
     func addNewLocation(){
+        selectedLocation = nil
         shouldAddNewLocation = true
         tfLocation.text = ""
         tfLocation.becomeFirstResponder()
         print("add new lcoations")
+        addNewLocationPress = true
     }
 }

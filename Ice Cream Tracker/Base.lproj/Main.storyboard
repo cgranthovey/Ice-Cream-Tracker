@@ -449,7 +449,7 @@
                                                             <constraint firstAttribute="width" constant="50" id="o6V-ik-qfc"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
-                                                        <state key="normal" title="Button" image="back"/>
+                                                        <state key="normal" title="Button" image="cancelCircle"/>
                                                         <connections>
                                                             <action selector="backBtnPress:" destination="fxK-fZ-t8F" eventType="touchUpInside" id="NaS-e6-uQd"/>
                                                         </connections>
@@ -537,8 +537,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="70" height="70"/>
         <image name="cancel" width="512" height="512"/>
+        <image name="cancelCircle" width="100" height="100"/>
         <image name="starEmpty" width="128" height="128"/>
     </resources>
 </document>
