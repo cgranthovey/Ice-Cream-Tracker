@@ -106,8 +106,11 @@ class AddVC: UIViewController {
     }
     
     @IBAction func backBtnPress(_ sender: AnyObject){
-        self.navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        if editingIceCream != nil{
+            self.navigationController?.popViewController(animated: true)
+        } else{
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     //MARK: - Functions
