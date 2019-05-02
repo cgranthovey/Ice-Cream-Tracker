@@ -18,8 +18,10 @@ class AddVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var viewTop: UIView!
     
-    var img: UIImage?
+    
+//    var img: UIImage?
     var stars = 5
     var starsSelectedCount: Double?
     var urlPath: String?
@@ -30,10 +32,11 @@ class AddVC: UIViewController {
     var addNewLocationPress = false
     var selectedLocation: Location?
     var locationsCount = 0
+    var imgToSave: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgView.image = img
+        imgView.image = imgToSave
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -53,6 +56,22 @@ class AddVC: UIViewController {
     
     @IBAction func saveBtnPress(_ sender: AnyObject){
         print("save btn press")
+        
+        if let img = imgToSave{
+            if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+                if let imgData = img.jpegData(compressionQuality: 1){
+                    let urlDatePath = String(Date().timeIntervalSince1970)
+                    let urlToSave = url.appendingPathComponent(urlDatePath)
+                    do{
+                        try imgData.write(to: urlToSave)
+                        urlPath = urlDatePath
+                    } catch{
+                        print("save btn error - ", error.localizedDescription)
+                    }
+                }
+            }
+        }
+        
         if let iceCream = editingIceCream{
             print("save btn press2")
             do{
@@ -113,11 +132,25 @@ class AddVC: UIViewController {
         }
     }
     
+    @IBAction func editBtnPress(_ sender: AnyObject){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CameraVC") as? CameraVC{
+            vc.isEditingPhoto = true
+            vc.delegate = self
+            present(vc, animated: true, completion: nil)
+        }
+//        if editingIceCream != nil{
+//
+//        } else{
+//
+//        }
+    }
+    
     //MARK: - Functions
     
     func setUpUI(){
         //        collectionView.canCancelContentTouches = true
         if let iceCream = editingIceCream{
+            viewTop.isHidden = true
             if let firstLocation = iceCream.location.first{
                 tfLocation.text = firstLocation.name
             }
@@ -315,5 +348,13 @@ extension AddVC: PopupVCDelegate{
         tfLocation.becomeFirstResponder()
         print("add new lcoations")
         addNewLocationPress = true
+    }
+}
+
+extension AddVC: CameraVCDelegate{
+    func getImage(img: UIImage){
+        print("get image called")
+        imgView.image = img
+        imgToSave = img
     }
 }

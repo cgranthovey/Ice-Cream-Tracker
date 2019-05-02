@@ -9,10 +9,15 @@
 import UIKit
 import AVFoundation
 
+protocol CameraVCDelegate{
+    func getImage(img: UIImage)
+}
+
 class CameraVC: UIViewController {
     
     @IBOutlet weak var viewTakePhoto: UIView!
     @IBOutlet weak var btnTakePhoto: UIButton!
+    @IBOutlet weak var btnSkip: UIButton!
     
     
     var captureSession = AVCaptureSession()
@@ -21,6 +26,8 @@ class CameraVC: UIViewController {
     var currentCamera: AVCaptureDevice?
     var photoOutput: AVCapturePhotoOutput?
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
+    var delegate: CameraVCDelegate?
+    var isEditingPhoto: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +42,9 @@ class CameraVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         btnTakePhoto.isEnabled = true
+        if isEditingPhoto{
+            btnSkip.isHidden = true
+        }
     }
     
     //MARK: - IBActions
@@ -113,25 +123,51 @@ class CameraVC: UIViewController {
 extension CameraVC: AVCapturePhotoCaptureDelegate{
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
-        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
-            return
-        }
-        let urlPath = String(Date().timeIntervalSince1970)
-        let imageURL = url.appendingPathComponent(urlPath)
+//        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
+//            return
+//        }
+//        let urlPath = String(Date().timeIntervalSince1970)
+//        let imageURL = url.appendingPathComponent(urlPath)
         
         if let imgData = photo.fileDataRepresentation(), let image = UIImage(data: imgData){
-            do{
-                try imgData.write(to: imageURL)
-                if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
-                    vc.img = image
-                    vc.urlPath = urlPath
+            
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+                
+                if isEditingPhoto{
+                    if let delegate = delegate{
+                        delegate.getImage(img: image)
+                    }
                     DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                } else{
+                    DispatchQueue.main.async {
+                        vc.imgToSave = image
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
-            } catch{
-                print("saving image failed")
             }
+            
+//            if let delegate = delegate{
+//                delegate.getImage(img: image)
+//                dismiss(animated: true, completion: nil)
+//            } else{
+//                do{
+//                    try imgData.write(to: imageURL)
+//                    if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+//                        vc.img = image
+//                        vc.urlPath = urlPath
+//                        DispatchQueue.main.async {
+//                            self.navigationController?.pushViewController(vc, animated: true)
+//                        }
+//                    }
+//                } catch{
+//                    print("saving image failed")
+//                }
+//            }
+            
+            
+
         }
     }
 }
