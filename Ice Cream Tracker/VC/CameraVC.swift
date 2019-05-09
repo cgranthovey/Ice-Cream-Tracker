@@ -38,6 +38,7 @@ class CameraVC: UIViewController {
         setUpPreviewLayer()
         startRunningCaptureSession()
         print("viewDidLoad")
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,9 +72,11 @@ class CameraVC: UIViewController {
     
     
     func setUpCameraSession(){
+        print("setUpCameraSession1")
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
     }
     func setUpDevice(){
+        print("setUpCameraSession2")
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .unspecified)
         let devices = deviceDiscoverySession.devices
         for device in devices{
@@ -85,7 +88,7 @@ class CameraVC: UIViewController {
             }
         }
         currentCamera = backCamera
-        
+        print("setUpCameraSession3")
     }
     func setUpInputOutput(){
         
@@ -97,6 +100,7 @@ class CameraVC: UIViewController {
             captureSession.addInput(captureInputDevice)
             photoOutput = AVCapturePhotoOutput()
             photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+            print("setUpCameraSession4")
             if let photoOutput = photoOutput{
                 captureSession.addOutput(photoOutput)
             }
@@ -110,10 +114,15 @@ class CameraVC: UIViewController {
         cameraPreviewLayer?.connection?.videoOrientation = .portrait
         cameraPreviewLayer?.frame = self.view.frame
         self.view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
+        print("setUpCameraSession5")
     }
     
     func startRunningCaptureSession(){
-        captureSession.startRunning()
+        print("setUpCameraSession6")
+        DispatchQueue.main.async {
+            self.captureSession.startRunning()
+        }
+        print("setUpCameraSession6.1")
     }
     
     

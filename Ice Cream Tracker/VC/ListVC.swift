@@ -54,7 +54,9 @@ class ListVC: UIViewController {
             let iceCream = iceCreams![indexPath.row]
             try realm.write {
                 realm.delete(iceCream)
+                print("trying to delete", indexPath)
                 tableView.deleteRows(at: [indexPath], with: .bottom)
+                print("trying to delete2")
             }
         } catch{
             print("error deleting item", error)
@@ -86,7 +88,6 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
         if editingStyle == .delete{
             if iceCreams != nil{
                 deleteIceCream(indexPath: indexPath)
-                tableView.deleteRows(at: [indexPath], with: .bottom)
             }
         }
     }
