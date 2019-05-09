@@ -22,6 +22,8 @@
 		1560DF202262A6FD00781094 /* CameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF1E2262A6FD00781094 /* CameraCell.swift */; };
 		1560DF212262A6FD00781094 /* CameraCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1560DF1F2262A6FD00781094 /* CameraCell.xib */; };
 		1560DF232262A92E00781094 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560DF222262A92E00781094 /* CameraVC.swift */; };
+		1569DA98227296580042763B /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1569DA97227296580042763B /* PopupVC.swift */; };
+		1569DA9A2272A0510042763B /* PopUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1569DA992272A0510042763B /* PopUpCell.swift */; };
 		158765B5226551FD006BF9E4 /* TakePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765B4226551FD006BF9E4 /* TakePhoto.swift */; };
 		158765B722655DC6006BF9E4 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765B622655DC6006BF9E4 /* PhotoVC.swift */; };
 		158765B9226589D6006BF9E4 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158765B8226589D6006BF9E4 /* AddVC.swift */; };
@@ -68,6 +70,8 @@
 		1560DF1E2262A6FD00781094 /* CameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCell.swift; sourceTree = "<group>"; };
 		1560DF1F2262A6FD00781094 /* CameraCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCell.xib; sourceTree = "<group>"; };
 		1560DF222262A92E00781094 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		1569DA97227296580042763B /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
+		1569DA992272A0510042763B /* PopUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCell.swift; sourceTree = "<group>"; };
 		158765B4226551FD006BF9E4 /* TakePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhoto.swift; sourceTree = "<group>"; };
 		158765B622655DC6006BF9E4 /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		158765B8226589D6006BF9E4 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				1560DF222262A92E00781094 /* CameraVC.swift */,
 				158765B622655DC6006BF9E4 /* PhotoVC.swift */,
 				158765B8226589D6006BF9E4 /* AddVC.swift */,
+				1569DA97227296580042763B /* PopupVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				1560DF1F2262A6FD00781094 /* CameraCell.xib */,
 				158765B4226551FD006BF9E4 /* TakePhoto.swift */,
 				158765BA22659259006BF9E4 /* StarCell.swift */,
+				1569DA992272A0510042763B /* PopUpCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,9 +449,11 @@
 				1560DF232262A92E00781094 /* CameraVC.swift in Sources */,
 				158765B5226551FD006BF9E4 /* TakePhoto.swift in Sources */,
 				158765BB22659259006BF9E4 /* StarCell.swift in Sources */,
+				1569DA98227296580042763B /* PopupVC.swift in Sources */,
 				1560DF1722629D5C00781094 /* IceCreamCell.swift in Sources */,
 				1560DF152262990500781094 /* Location.swift in Sources */,
 				1549A896225D8B3900FAB5C6 /* AppDelegate.swift in Sources */,
+				1569DA9A2272A0510042763B /* PopUpCell.swift in Sources */,
 				1549A89E225D8B3900FAB5C6 /* Ice_Cream_Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

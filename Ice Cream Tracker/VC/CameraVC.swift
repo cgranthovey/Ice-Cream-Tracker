@@ -9,10 +9,15 @@
 import UIKit
 import AVFoundation
 
+protocol CameraVCDelegate{
+    func getImage(img: UIImage)
+}
+
 class CameraVC: UIViewController {
     
     @IBOutlet weak var viewTakePhoto: UIView!
     @IBOutlet weak var btnTakePhoto: UIButton!
+    @IBOutlet weak var btnSkip: UIButton!
     
     
     var captureSession = AVCaptureSession()
@@ -21,6 +26,8 @@ class CameraVC: UIViewController {
     var currentCamera: AVCaptureDevice?
     var photoOutput: AVCapturePhotoOutput?
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
+    var delegate: CameraVCDelegate?
+    var isEditingPhoto: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +38,14 @@ class CameraVC: UIViewController {
         setUpPreviewLayer()
         startRunningCaptureSession()
         print("viewDidLoad")
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         btnTakePhoto.isEnabled = true
+        if isEditingPhoto{
+            btnSkip.isHidden = true
+        }
     }
     
     //MARK: - IBActions
@@ -61,9 +72,11 @@ class CameraVC: UIViewController {
     
     
     func setUpCameraSession(){
+        print("setUpCameraSession1")
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
     }
     func setUpDevice(){
+        print("setUpCameraSession2")
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .unspecified)
         let devices = deviceDiscoverySession.devices
         for device in devices{
@@ -75,7 +88,7 @@ class CameraVC: UIViewController {
             }
         }
         currentCamera = backCamera
-        
+        print("setUpCameraSession3")
     }
     func setUpInputOutput(){
         
@@ -87,6 +100,7 @@ class CameraVC: UIViewController {
             captureSession.addInput(captureInputDevice)
             photoOutput = AVCapturePhotoOutput()
             photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+            print("setUpCameraSession4")
             if let photoOutput = photoOutput{
                 captureSession.addOutput(photoOutput)
             }
@@ -100,10 +114,15 @@ class CameraVC: UIViewController {
         cameraPreviewLayer?.connection?.videoOrientation = .portrait
         cameraPreviewLayer?.frame = self.view.frame
         self.view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
+        print("setUpCameraSession5")
     }
     
     func startRunningCaptureSession(){
-        captureSession.startRunning()
+        print("setUpCameraSession6")
+        DispatchQueue.main.async {
+            self.captureSession.startRunning()
+        }
+        print("setUpCameraSession6.1")
     }
     
     
@@ -113,25 +132,51 @@ class CameraVC: UIViewController {
 extension CameraVC: AVCapturePhotoCaptureDelegate{
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
-        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
-            return
-        }
-        let urlPath = String(Date().timeIntervalSince1970)
-        let imageURL = url.appendingPathComponent(urlPath)
+//        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
+//            return
+//        }
+//        let urlPath = String(Date().timeIntervalSince1970)
+//        let imageURL = url.appendingPathComponent(urlPath)
         
         if let imgData = photo.fileDataRepresentation(), let image = UIImage(data: imgData){
-            do{
-                try imgData.write(to: imageURL)
-                if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
-                    vc.img = image
-                    vc.urlPath = urlPath
+            
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+                
+                if isEditingPhoto{
+                    if let delegate = delegate{
+                        delegate.getImage(img: image)
+                    }
                     DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                } else{
+                    DispatchQueue.main.async {
+                        vc.imgToSave = image
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
-            } catch{
-                print("saving image failed")
             }
+            
+//            if let delegate = delegate{
+//                delegate.getImage(img: image)
+//                dismiss(animated: true, completion: nil)
+//            } else{
+//                do{
+//                    try imgData.write(to: imageURL)
+//                    if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+//                        vc.img = image
+//                        vc.urlPath = urlPath
+//                        DispatchQueue.main.async {
+//                            self.navigationController?.pushViewController(vc, animated: true)
+//                        }
+//                    }
+//                } catch{
+//                    print("saving image failed")
+//                }
+//            }
+            
+            
+
         }
     }
 }

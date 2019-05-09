@@ -13,6 +13,7 @@ class IceCream: Object{
     @objc dynamic var flavor: String = ""
     @objc dynamic var rating: Double = -1
     var location = LinkingObjects(fromType: Location.self, property: "iceCreams")
+//    @objc dynamic var location: Location?
     @objc dynamic var date: Date!
     @objc dynamic var imagePath: String?
     

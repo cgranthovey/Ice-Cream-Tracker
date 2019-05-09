@@ -23,6 +23,8 @@ class ListVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 130
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,11 +46,21 @@ class ListVC: UIViewController {
         } catch{
             print("error getting realm", error.localizedDescription)
         }
+    }
+    
+    func deleteIceCream(indexPath: IndexPath){
         
-//        iceCreams = realm.objects(IceCream.self)
-//        tableView.reloadData()
-        print("get iceCreams", iceCreams?.count)
-
+        do{
+            let iceCream = iceCreams![indexPath.row]
+            try realm.write {
+                realm.delete(iceCream)
+                print("trying to delete", indexPath)
+                tableView.deleteRows(at: [indexPath], with: .bottom)
+                print("trying to delete2")
+            }
+        } catch{
+            print("error deleting item", error)
+        }
     }
     
 
@@ -72,12 +84,33 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
         return iceCreams?.count ?? 1
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            if iceCreams != nil{
+                deleteIceCream(indexPath: indexPath)
+            }
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return UITableView.automaticDimension
+        
+//        return 130
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+            vc.editingIceCream = iceCreams?[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
