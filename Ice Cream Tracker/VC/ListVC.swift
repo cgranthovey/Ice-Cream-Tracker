@@ -43,8 +43,41 @@ class ListVC: UIViewController {
             iceCreams = realm2.objects(IceCream.self)
             iceCreams = iceCreams?.sorted(byKeyPath: "date", ascending: false)
             tableView.reloadData()
+            if iceCreams?.count == 0{
+                addFirstItem()
+            } else{
+                tableView.backgroundView = nil
+            }
         } catch{
             print("error getting realm", error.localizedDescription)
+        }
+    }
+    
+    func addFirstItem(){
+        print("enter here", tableView.frame.width)
+        print("enter here2", UIScreen.main.bounds.width)
+        let bgView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableView.frame.height))
+        let addBtn = UIButton(type: .system)
+        addBtn.frame = CGRect(x: 0, y: bgView.frame.height / 4, width: bgView.frame.width, height: 120)
+        addBtn.setTitle("Add First Item", for: .normal)
+        addBtn.setTitleColor(UIColor(red: 255/255, green: 99/255, blue: 71/255, alpha: 1), for: .normal)
+        addBtn.titleLabel?.font = UIFont(name: "Menlo", size: 24)
+        addBtn.addTarget(self, action: #selector(addItemPress), for: .touchUpInside)
+        bgView.addSubview(addBtn)
+        tableView.backgroundView = bgView
+        
+        addBtn.transform = CGAffineTransform(translationX: 0, y: 20)
+        addBtn.alpha = 0
+        UIView.animate(withDuration: 0.4, delay: 0.2, options: .curveEaseOut, animations: {
+            print("transform")
+            addBtn.transform = .identity
+            addBtn.alpha = 1
+        }, completion: nil)
+    }
+    
+    @objc func addItemPress(){
+        if let addVC = storyboard?.instantiateViewController(withIdentifier: "AddVC") as? AddVC{
+            self.navigationController?.pushViewController(addVC, animated: true)
         }
     }
     
@@ -74,6 +107,9 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? IceCreamCell, let iceCreams = iceCreams{
             print("configure that")
             cell.configure(item: iceCreams[indexPath.row])
+            let lightBG = UIView()
+            lightBG.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
+            cell.selectedBackgroundView = lightBG
             return cell
         }
         return UITableViewCell()

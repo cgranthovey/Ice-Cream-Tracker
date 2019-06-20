@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import RealmSwift
+import AVFoundation
 
 class AddVC: UIViewController {
     
@@ -18,7 +19,9 @@ class AddVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var btnAddImg: UIButton!
     @IBOutlet weak var viewTop: UIView!
+    @IBOutlet weak var heightStars: NSLayoutConstraint!
     
     
 //    var img: UIImage?
@@ -36,7 +39,7 @@ class AddVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgView.image = imgToSave
+//        imgView.image = imgToSave
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -86,10 +89,12 @@ class AddVC: UIViewController {
                         iceCream.rating = starsSelectedCount
                     }
                 }
+                
             } catch{
                 print("error udpating realm", error.localizedDescription)
             }
             addLocation(with: iceCream)
+            
 
         } else{
             let iceCream = IceCream()
@@ -114,12 +119,7 @@ class AddVC: UIViewController {
             }
         }
         
-        
-        if editingIceCream != nil{
-            self.navigationController?.popViewController(animated: true)
-        } else{
-            dismiss(animated: true, completion: nil)
-        }
+        self.navigationController?.popViewController(animated: true)
         
         
     }
@@ -132,25 +132,40 @@ class AddVC: UIViewController {
         }
     }
     
+    func showImgPicker(sourceType: UIImagePickerController.SourceType){
+        let imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
+        imgPicker.sourceType = sourceType
+        present(imgPicker, animated: true, completion: nil)
+    }
+    
     @IBAction func editBtnPress(_ sender: AnyObject){
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "CameraVC") as? CameraVC{
-            vc.isEditingPhoto = true
-            vc.delegate = self
-            present(vc, animated: true, completion: nil)
-        }
-//        if editingIceCream != nil{
-//
-//        } else{
-//
-//        }
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
+            self.showImgPicker(sourceType: .photoLibrary)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            self.showImgPicker(sourceType: .camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+        }))
+        present(alert, animated: true, completion: nil)
+
     }
     
     //MARK: - Functions
     
     func setUpUI(){
         //        collectionView.canCancelContentTouches = true
+        
+        imgView.alpha = 0.54
+        
+        
         if let iceCream = editingIceCream{
             viewTop.isHidden = true
+            navigationItem.title = "Edit"
             if let firstLocation = iceCream.location.first{
                 tfLocation.text = firstLocation.name
             }
@@ -161,8 +176,12 @@ class AddVC: UIViewController {
                 if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
                     let imgURL = url.appendingPathComponent(path)
                     imgView.image = UIImage(contentsOfFile: imgURL.path)
+                    imgView.alpha = 1
+                    btnAddImg.titleLabel?.text = "Edit"
                 }
             }
+        } else{
+            navigationItem.title = "Add"
         }
         checkIfLocations()
     }
@@ -266,6 +285,7 @@ extension AddVC: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthOfCell = collectionView.frame.width/CGFloat(stars)
+        heightStars.constant = widthOfCell
         return CGSize(width: widthOfCell, height: widthOfCell)
     }
     
@@ -345,9 +365,13 @@ extension AddVC: PopupVCDelegate{
         selectedLocation = nil
         shouldAddNewLocation = true
         tfLocation.text = ""
-        tfLocation.becomeFirstResponder()
-        print("add new lcoations")
         addNewLocationPress = true
+        
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { (timer) in
+            self.tfLocation.becomeFirstResponder()
+        }
+        
+        print("add new location")
     }
 }
 
@@ -356,5 +380,20 @@ extension AddVC: CameraVCDelegate{
         print("get image called")
         imgView.image = img
         imgToSave = img
+    }
+}
+
+extension AddVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let img = info[.originalImage] as? UIImage else{
+            print("no image")
+            return
+        }
+        imgView.image = img
+        btnAddImg.titleLabel?.text = "Edit"
+        imgToSave = img
+        imgView.alpha = 1
+        print("did finish")
+        dismiss(animated: true, completion: nil)
     }
 }
